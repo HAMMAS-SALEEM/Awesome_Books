@@ -13,6 +13,10 @@ body {
 	align-items: center;
 }
 
+.list-elements {
+    border: 1px solid red;
+}
+
 li {
 	display: flex;
 	flex-direction: column;
