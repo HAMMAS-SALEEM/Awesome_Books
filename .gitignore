@@ -1,1 +1,11 @@
 node_modules
+
+package-lock.json
+
+package.json
+
+.eslintrc.json
+
+.stylelintrc.json
+
+.hintrc
