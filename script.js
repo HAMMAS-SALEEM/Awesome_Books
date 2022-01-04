@@ -10,6 +10,8 @@ let arr = [];
 
 addBtn.addEventListener('click', () => {
     pushBook();
+    pushListItem();
+    locStorage();
 }
 )
 
@@ -43,9 +45,10 @@ function pushListItem() {
 }
 pushListItem();
 
-function removeData() {
-    arr.filter(e=> e.id.toString() !== id.toString())
+function removeData(id) {
+    arr = arr.filter(e=> e.id.toString() !== id.toString())
     locStorage();
+    pushListItem();
 }
 
 function locStorage() {
