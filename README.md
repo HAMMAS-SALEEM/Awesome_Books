@@ -18,7 +18,7 @@
 
 ## Authors
 
-👤 **HAMMAS BIN SALEEM**
+👤 **Akshitha Reddy**
 - GitHub: [@Akshitha Reddy](https://github.com/AkshithaReddy1899)
 - Twitter: [@Aksha1899](https://twitter.com/Aksha1899?t=S0sv7-gPWSxN-RzjIAz4rw&s=09)
 - LinkedIn: [Akshitha Reddy](https://www.linkedin.com/in/akshitha-reddy-716944198/)
