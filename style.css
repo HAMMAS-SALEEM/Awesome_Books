@@ -13,11 +13,15 @@ body {
 	align-items: center;
 }
 
+.for_removal {
+    list-style: none;
+}
+
 .list-elements {
     border: 1px solid red;
 }
 
-li {
+.list_item {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;

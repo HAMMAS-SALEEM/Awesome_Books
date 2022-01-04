@@ -4,41 +4,50 @@ let addBtn = document.querySelector('.addBtn')
 let removeBtn = document.querySelector('#removeBtn')
 let output = document.querySelector('.list-elements')
 let arr = [];
-let li;
+
 
 
 
 addBtn.addEventListener('click', () => {
-	pushData();
-    console.log(arr)
-    arr.forEach(function(item) {
-        li = document.createElement("li");
+    pushBook();
+}
+)
 
-        li.innerHTML = `<p class="book-name">${item.book}</p><br>
-                    <p class="book-author">${item.author}</p>
-    <button type="button" value=${item.id} id="removeBtn">Remove</button>
-    <hr class="line">`
-    });
-    output.appendChild(li);
-});
-
-function pushData() {
-    arr.push({
+function pushBook() {
+    arr.unshift({
         id: new Date().getTime().toString(),
         book : bookName.value,
         author : author.value
     }
     )
+    
+    locStorage();
 }
 
-function removeData(id) {
-    console.log(id)
-    arr = arr.filter(e=> e.id.toString() !== id.toString())
-    console.log(arr.filter(e=> e.id.toString() !== id.toString()))
-    output.removeChild(li)
+function pushListItem() {
+    let bookHtml = '';
+    let booksArray = localStorage.getItem('booksList');
+    let booksItems = JSON.parse(booksArray);
+    if(booksItems==null){
+        
+    } else {
+    booksItems.forEach(item=>{
+    bookHtml += `<li class="list_item"><p class="book-name">${item.book}</p><br>
+    <p class="book-author">${item.author}</p>
+<button type="button" id=${item.id} onclick="removeData(this.id)">Remove</button>
+<hr class="line"></li>`
+    })
+    output.innerHTML = bookHtml
 }
 
-removeBtn.addEventListener(click,function() {
-    let removeId =  removeBtn.id
-    console.log(removeId)
-})
+}
+pushListItem();
+
+function removeData() {
+    arr.filter(e=> e.id.toString() !== id.toString())
+    locStorage();
+}
+
+function locStorage() {
+    localStorage.setItem("booksList" , JSON.stringify(arr))
+}
