@@ -4,6 +4,7 @@ let addBtn = document.querySelector('.addBtn')
 let removeBtn = document.querySelector('#removeBtn')
 let output = document.querySelector('.list-elements')
 let arr = [];
+let error = document.getElementById('error');
 addBtn.addEventListener('click', () => {
     pushBook();
     pushListItem();
@@ -11,6 +12,7 @@ addBtn.addEventListener('click', () => {
 )
 function pushBook() {
     if (bookName.value !== "" && author.value !== "") {
+        error.textContent = "Please type in your data";
         arr.unshift({
             id: new Date().getTime().toString(),
             book : bookName.value,
