@@ -2,7 +2,7 @@
 
 # Awesome Books
 
-> This is an application for 
+> This is an application for books record.
 
 ![screenshot](./images/awesome_books.GIF)
 
