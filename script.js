@@ -11,7 +11,6 @@ let arr = [];
 addBtn.addEventListener('click', () => {
     pushBook();
     pushListItem();
-    locStorage();
 }
 )
 
