@@ -9,3 +9,5 @@ package.json
 .stylelintrc.json
 
 .hintrc
+
+.json

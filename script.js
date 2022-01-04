@@ -1,49 +1,51 @@
-let bookName = document.getElementById('name')
-let author = document.getElementById('author')
-let addBtn = document.querySelector('.addBtn')
-let removeBtn = document.querySelector('#removeBtn')
-let output = document.querySelector('.list-elements')
+const bookName = document.getElementById('name');
+const author = document.getElementById('author');
+const addBtn = document.querySelector('.addBtn');
+const output = document.querySelector('.list-elements');
 let arr = [];
-let error = document.getElementById('error');
-addBtn.addEventListener('click', () => {
-    pushBook();
-    pushListItem();
+
+function locStorage() {
+  localStorage.setItem('booksList', JSON.stringify(arr));
 }
-)
+
 function pushBook() {
-    if (bookName.value !== "" && author.value !== "") {
-        error.textContent = "Please type in your data";
-        arr.unshift({
-            id: new Date().getTime().toString(),
-            book : bookName.value,
-            author : author.value
-        });
-        locStorage();
-    }
+  if (bookName.value !== '' && author.value !== '') {
+    arr.unshift({
+      id: new Date().getTime().toString(),
+      book: bookName.value,
+      author: author.value,
+    });
+    locStorage();
+  } else {
+    alert('Please type in your data');
+  }
 }
+
 function pushListItem() {
-    let bookHtml = '';
-    let booksArray = JSON.parse(localStorage.getItem('booksList'));
-    if(booksArray!==null){
-        arr = booksArray;
-        let i = 0;
-        booksArray.forEach((item)=>{
-            console.log(i);
-            i++;
-        bookHtml += `<li class="list_item"><p class="book-name">${item.book}</p><br>
-                        <p class="book-author">${item.author}</p>
-                    <button type="button" id=${item.id} onclick="removeData(this.id)">Remove</button>
-                    <hr class="line"></li>`
-        });
-        output.innerHTML = bookHtml
-    }
+  let bookHtml = '';
+  const booksArray = JSON.parse(localStorage.getItem('booksList'));
+  if (booksArray !== null) {
+    arr = booksArray;
+    booksArray.forEach((item) => {
+      bookHtml += `<li class="list_item"><p class="book-name">${item.book}</p><br>
+                          <p class="book-author">${item.author}</p>
+                      <button type="button" id=${item.id} onclick="removeData(this.id)">Remove</button>
+                      <hr class="line"></li>`;
+    });
+    output.innerHTML = bookHtml;
+  }
 }
 pushListItem();
+
 function removeData(id) {
-    arr = arr.filter(e=> e.id.toString() !== id.toString())
-    locStorage();
-    pushListItem();
+  arr = arr.filter((e) => e.id.toString() !== id.toString());
+  locStorage();
+  pushListItem();
 }
-function locStorage() {
-    localStorage.setItem("booksList" , JSON.stringify(arr))
-}
+
+addBtn.addEventListener('click', () => {
+  pushBook();
+  pushListItem();
+});
+
+removeData();
