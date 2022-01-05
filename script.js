@@ -1,5 +1,5 @@
-const bookName = document.getElementById('name').value;
-const author = document.getElementById('author').value;
+const bookName = document.getElementById('name');
+const author = document.getElementById('author');
 const addBtn = document.querySelector('.addBtn');
 const output = document.querySelector('.list-elements');
 let arr = [{ id: new Date().getTime().toString(), book: 'Avengers', author: 'Omar Labana' }];
@@ -17,8 +17,8 @@ if (localStorage.getItem('booksList') === null) {
 class PushBook {
     constructor() {
       this.id = new Date().getTime().toString(),
-      this.book = bookName,
-      this.author = author
+      this.book = bookName.value,
+      this.author = author.value
     }
     updateLoc() {
       locStorage();
@@ -47,33 +47,38 @@ display.pushListItem();
 
 addBtn.addEventListener('click', () => {
   const book = new PushBook();
+  const display = new DisplayBooks();
   arr.push(book);
   book.updateLoc();
-  console.log(arr);
+  display.pushListItem()
 })
 
-/*
-const bookName = document.getElementById('name');
-const author = document.getElementById('author');
-const addBtn = document.querySelector('.addBtn');
-const output = document.querySelector('.list-elements');
-let arr = [{ id: new Date().getTime().toString(), book: 'Avengers', author: 'Omar Labana' }];
+function removeData(id) {
+  arr = arr.filter((e) => e.id !== id);
+  const book = new PushBook();
+  const display = new DisplayBooks();
+  book.updateLoc();
+  display.pushListItem()
+}
 
-function pushListItem() {
-  let bookHtml = '';
-  const booksArray = JSON.parse(localStorage.getItem('booksList'));
-  if (booksArray !== null) {
-    arr = booksArray;
-    booksArray.forEach((item) => {
-      bookHtml += `<li class="list_item"><p class="book-name">${item.book}</p><br>
-                          <p class="book-author">${item.author}</p>
-                      <button type="button" id=${item.id} onclick="removeData(this.id)">Remove</button>
-                      <hr class="line"></li>`;
-    });
-    output.innerHTML = bookHtml;
+
+removeData();
+
+/*
+
+class remData {
+  removeData(id) {
+    arr = arr.filter((e) => e.id !== id);
+    locStorage();
+    pushListItem();
   }
 }
-pushListItem();
+
+let remo = new remData()
+remo.removeData();
+
+
+
 
 function removeData(id) {
   arr = arr.filter((e) => e.id !== id);
@@ -81,9 +86,5 @@ function removeData(id) {
   pushListItem();
 }
 
-addBtn.addEventListener('click', () => {
-  pushBook();
-  pushListItem();
-});
 
 removeData();*/
