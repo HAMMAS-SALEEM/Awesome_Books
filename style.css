@@ -11,31 +11,62 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: beige;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 ul {
   width: 80%;
   height: auto;
+  padding: 10px;
+  border: 2px solid black;
+  margin-bottom: 60px;
 }
 
 li {
   list-style: none;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
 }
 
-h1 {
-  margin: 50px;
+button {
+  background-color: thistle;
+  border: 2px solid grey;
+  outline: none;
+  padding: 5px;
+  box-shadow: 3px 3px 5px 1px rgb(0, 0, 0, 0.4);
+}
+
+.header {
+  margin: 20px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .book-author {
   margin-bottom: 10px;
 }
 
-.line {
-  border: none;
-  border-bottom: 1px solid black;
-  margin: 10px;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 input {
+  margin: 10px;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+input::placeholder {
+  font-weight: bold;
+  color: rgb(102, 98, 98);
+}
+
+.addBtn {
+  width: 60px;
   margin: 10px;
 }

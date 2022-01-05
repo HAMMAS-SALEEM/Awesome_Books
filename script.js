@@ -3,6 +3,7 @@ const author = document.getElementById('author');
 const addBtn = document.querySelector('.addBtn');
 const output = document.querySelector('.list-elements');
 let arr = [{ id: new Date().getTime().toString(), book: 'Avengers', author: 'Omar Labana' }];
+const error = document.getElementById('error');
 
 function locStorage() {
   localStorage.setItem('booksList', JSON.stringify(arr));
@@ -32,10 +33,9 @@ class DisplayBooks {
   if (booksArray !== null) {
     arr = booksArray;
     booksArray.forEach((item) => {
-      bookHtml += `<li class="list_item"><p class="book-name">${item.book}</p><br>
-                          <p class="book-author">${item.author}</p>
-                      <button type="button" id=${item.id} onclick="remData.removeData(this.id)">Remove</button>
-                      <hr class="line"></li>`;
+      bookHtml += `<li class="list_item">
+      <p class="book-name">"<b>${item.book}</b>" by ${item.author}</p>
+                      <button type="button" id=${item.id} onclick="remData.removeData(this.id)">Remove</button>`;
     });
     output.innerHTML = bookHtml;
   }
@@ -46,11 +46,15 @@ const display = new DisplayBooks();
 display.pushListItem();
 
 addBtn.addEventListener('click', () => {
-  const book = new PushBook();
-  const display = new DisplayBooks();
-  arr.push(book);
-  book.updateLoc();
-  display.pushListItem()
+  if(bookName.value === '' && author.value === '') {
+    alert("Please type in your data")
+  }else {
+    const book = new PushBook();
+    const display = new DisplayBooks();
+    arr.push(book);
+    book.updateLoc();
+    display.pushListItem()
+  }
 })
 
 class RemData {
