@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  width: 80%;
+  height: auto;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  margin: 50px;
+}
+
+.book-author {
+  margin-bottom: 10px;
+}
+
+.line {
+  border: none;
+  border-bottom: 1px solid black;
+  margin: 10px;
+}
+
+input {
+  margin: 10px;
+}
