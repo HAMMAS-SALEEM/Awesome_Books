@@ -24,7 +24,7 @@ class PushBook {
 
 class Render {
   constructor() {
-    this.arr = [];
+    this.arr = JSON.parse(localStorage.getItem('booksList'));
   }
 
   addBook() {
@@ -35,15 +35,15 @@ class Render {
   }
   
   RemoveBook(id) {
-    arr = arr.filter((e) => e.id !== id);
-    console.log(arr)
+    arr = this.arr.filter((e) => e.id !== id);
+    console.log(arr.filter((e) => e.id !== id))
     locStorage();
     pushListItem();
   }
 }
 
 const renderData = new Render();
-console.log(renderData)
+// console.log(renderData)
 
 function pushListItem() {
   let bookHtml = '';
@@ -53,7 +53,7 @@ function pushListItem() {
     booksArray.forEach((item) => {
       bookHtml += `<li class="list_item">
       <p class="book-name">"<b>${item.book}</b>" by ${item.author}</p>
-                      <button type="button" id=${item.id} onclick="renderData.RemoveBook(${item.id})">Remove</button>`;
+                      <button type="button" id=${item.id} onclick="renderData.RemoveBook(this.id)">Remove</button>`;
     });
     output.innerHTML = bookHtml;
   }
