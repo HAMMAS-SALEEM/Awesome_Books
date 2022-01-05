@@ -34,7 +34,7 @@ class DisplayBooks {
     booksArray.forEach((item) => {
       bookHtml += `<li class="list_item"><p class="book-name">${item.book}</p><br>
                           <p class="book-author">${item.author}</p>
-                      <button type="button" id=${item.id} onclick="removeData(this.id)">Remove</button>
+                      <button type="button" id=${item.id} onclick="remData.removeData(this.id)">Remove</button>
                       <hr class="line"></li>`;
     });
     output.innerHTML = bookHtml;
@@ -53,38 +53,15 @@ addBtn.addEventListener('click', () => {
   display.pushListItem()
 })
 
-function removeData(id) {
-  arr = arr.filter((e) => e.id !== id);
-  const book = new PushBook();
-  const display = new DisplayBooks();
-  book.updateLoc();
-  display.pushListItem()
-}
-
-
-removeData();
-
-/*
-
-class remData {
+class RemData {
   removeData(id) {
-    arr = arr.filter((e) => e.id !== id);
-    locStorage();
-    pushListItem();
-  }
+      arr = arr.filter((e) => e.id !== id);
+      const book = new PushBook();
+      const display = new DisplayBooks();
+      book.updateLoc();
+      display.pushListItem()
+    }
 }
 
-let remo = new remData()
-remo.removeData();
-
-
-
-
-function removeData(id) {
-  arr = arr.filter((e) => e.id !== id);
-  locStorage();
-  pushListItem();
-}
-
-
-removeData();*/
+let remData = new RemData();
+remData.removeData();
