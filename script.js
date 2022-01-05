@@ -2,10 +2,10 @@ const bookName = document.getElementById('name');
 const author = document.getElementById('author');
 const addBtn = document.querySelector('.addBtn');
 const output = document.querySelector('.list-elements');
-let arr = [{id: new Date().getTime().toString(), book: 'Avengers', author:'Omar Labana'}];
-if(localStorage.getItem('booksList')===null){
+let arr = [{ id: new Date().getTime().toString(), book: 'Avengers', author: 'Omar Labana' }];
+if (localStorage.getItem('booksList') === null) {
   localStorage();
-} 
+}
 function locStorage() {
   localStorage.setItem('booksList', JSON.stringify(arr));
 }
