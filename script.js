@@ -54,6 +54,7 @@ addBtn.addEventListener('click', () => {
     arr.push(book);
     book.updateLoc();
     display.pushListItem()
+    
   }
 })
 
