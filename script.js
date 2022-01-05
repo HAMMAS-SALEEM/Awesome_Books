@@ -3,11 +3,15 @@ const author = document.getElementById('author');
 const addBtn = document.querySelector('.addBtn');
 const output = document.querySelector('.list-elements');
 let arr = [{ id: new Date().getTime().toString(), book: 'Avengers', author: 'Omar Labana' }];
-if (localStorage.getItem('booksList') === null) {
-  localStorage();
-}
+
 function locStorage() {
   localStorage.setItem('booksList', JSON.stringify(arr));
+}
+
+if (localStorage.getItem('booksList') === null) {
+  locStorage();
+} else if (JSON.parse(localStorage.getItem('booksList')).length === 0) {
+  locStorage();
 }
 
 function pushBook() {
@@ -40,7 +44,7 @@ function pushListItem() {
 pushListItem();
 
 function removeData(id) {
-  arr = arr.filter((e) => e.id.toString() !== id.toString());
+  arr = arr.filter((e) => e.id !== id);
   locStorage();
   pushListItem();
 }
