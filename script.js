@@ -3,6 +3,7 @@
 const bookName = document.getElementById('name');
 const author = document.getElementById('author');
 const output = document.querySelector('.list-elements');
+const form = document.querySelector('#form')
 
 function pushListItem() {
   let bookHtml = '';
@@ -75,6 +76,7 @@ const addBtn = document.querySelector('.addBtn');
 addBtn.addEventListener('click', () => {
   collection.getBooks();
   collection.addBooks();
+  form.reset();
 });
 
 // NAVIGATION variables

@@ -27,6 +27,8 @@ header {
   width: 140px;
   align-self: center;
   margin-left: 15px;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 nav {
@@ -59,7 +61,8 @@ ul {
 
 .time {
   text-align: right;
-  margin-top: 6px;
+  margin-top: -20px;
+  margin-right: 3px;
 }
 
 button {
@@ -80,6 +83,7 @@ button {
 
 .book-name {
   align-self: center;
+  font-weight: 700;
 }
 
 .book-author {
@@ -114,9 +118,12 @@ input::placeholder {
   display: block;
 }
 
-#list,
-#contact {
+#list, #contact {
   display: none;
+}
+
+footer {
+  padding: 10px 0;
 }
 
 .footer-container {
