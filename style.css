@@ -151,3 +151,7 @@ ol {
   list-style: none;
   margin: 20px;
 }
+
+.contact_list_item {
+  margin-top: 5px;
+}
