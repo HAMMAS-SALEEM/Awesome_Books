@@ -76,3 +76,37 @@ addBtn.addEventListener('click', () => {
   collection.getBooks();
   collection.addBooks();
 });
+
+//NAVIGATION variables
+
+const navList = document.getElementById('nav-list');
+const navAdd = document.getElementById('nav-add');
+const navContact = document.getElementById('nav-contact');
+const listSection = document.getElementById('list');
+const addSection = document.getElementById('add-book');
+const contactSection = document.getElementById('contact');
+const time = document.getElementById('time');
+
+window.onload = function() {
+  setInterval(() => {
+    time.innerHTML = new Date();
+  }, 100);
+}
+
+navList.addEventListener('click',() => {
+  listSection.style.display = 'block';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'none';
+})
+
+navAdd.addEventListener('click', ()=>{
+  listSection.style.display = 'none';
+  addSection.style.display = 'block';
+  contactSection.style.display = 'none';
+})
+
+navContact.addEventListener('click', ()=>{
+  listSection.style.display = 'none';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'block';
+})

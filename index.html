@@ -11,18 +11,42 @@
 </head>
 
 <body>
-    <h1 class="header">Awesome books</h1>
-
-    <ul class="list-elements">
-        <!-- Books -->
-    </ul>
-    <p id="error"></p>
-    <h2 class="header">Add a new book</h2>
-    <form id="form">
-        <input type="text" id="name" placeholder="Title">
-        <input type="text" id="author" placeholder="Author">
-        <button type="button" class="addBtn">Submit</button>
-    </form>
+    <header>
+        <nav>
+            <p class="logo">Awesome Books</p>
+            <ul>
+                <li class="nav-items"><button type="button" id="nav-list">List</button></li>
+                <li class="nav-items"><button type="button" id="nav-add">Add new</button></li>
+                <li class="nav-items"><button type="button"
+                id="nav-contact">Contact</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p id="time"></p>
+        <section id="list">
+            <h1 class="header">All awesome books</h1>
+            <ul class="list-elements">
+                <!-- Books -->
+            </ul>
+        </section>
+        <section id="add-book">
+            <h1 class="header">Add a new book</h1>
+            <form id="form">
+                <input type="text" id="name" placeholder="Title">
+                <input type="text" id="author" placeholder="Author">
+                <button type="button" class="addBtn">Submit</button>
+            </form>
+        </section>
+        <section id="contact">
+            <h1 class="Contact information"></h1>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <small>Copyright@2022</small>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 

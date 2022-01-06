@@ -70,3 +70,12 @@ input::placeholder {
   width: 60px;
   margin: 10px;
 }
+
+#list {
+  display: block;
+}
+
+#add-book,
+#contact {
+  display: none;
+}
