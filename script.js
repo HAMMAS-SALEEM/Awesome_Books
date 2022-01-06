@@ -9,7 +9,6 @@ function pushListItem() {
   let bookHtml = '';
   const booksArray = JSON.parse(localStorage.getItem('booksList'));
   if (booksArray !== null) {
-    collection.setupArray()
     booksArray.forEach((item) => {
       bookHtml += `<li class="list_item">
     <p class="book-name">"${item.book}" by ${item.author}</p><br><button type="button" id=${item.id} onclick="collection.removeBooks(this.id)">Remove</button></li>`;
@@ -20,7 +19,7 @@ function pushListItem() {
 
 class Collection {
   constructor() {
-    this.arr = [];
+    this.arr = JSON.parse(localStorage.getItem('booksList'));
   }
 
   // class to check array items in the local storage
@@ -53,7 +52,7 @@ class Collection {
   }
 
   setupArray() {
-    this.arr=JSON.parse(localStorage.getItem('booksList'))
+    this.arr = JSON.parse(localStorage.getItem('booksList'));
   }
 
   // class to remove items from array and display them
@@ -62,7 +61,6 @@ class Collection {
     this.arr = this.arr.filter((e) => e.id !== id);
     this.UpdateLocalStorage();
     pushListItem();
-    console.log(id)
   }
 }
 
@@ -95,11 +93,13 @@ const addSection = document.getElementById('add-book');
 const contactSection = document.getElementById('contact');
 const time = document.getElementById('time');
 
-window.onload = function () {
+function timeDate() {
   setInterval(() => {
     time.innerHTML = new Date();
   }, 100);
-};
+}
+
+window.addEventListener('load', timeDate);
 
 navList.addEventListener('click', () => {
   listSection.style.display = 'block';
