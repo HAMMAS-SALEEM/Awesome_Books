@@ -1,57 +1,78 @@
+/* eslint-disable max-classes-per-file */
+
 const bookName = document.getElementById('name');
 const author = document.getElementById('author');
-const addBtn = document.querySelector('.addBtn');
 const output = document.querySelector('.list-elements');
-let arr = [{ id: new Date().getTime().toString(), book: 'Avengers', author: 'Omar Labana' }];
-
-function locStorage() {
-  localStorage.setItem('booksList', JSON.stringify(arr));
-}
-
-if (localStorage.getItem('booksList') === null) {
-  locStorage();
-} else if (JSON.parse(localStorage.getItem('booksList')).length === 0) {
-  locStorage();
-}
-
-function pushBook() {
-  if (bookName.value !== '' && author.value !== '') {
-    arr.unshift({
-      id: new Date().getTime().toString(),
-      book: bookName.value,
-      author: author.value,
-    });
-    locStorage();
-  } else {
-    alert('Please type in your data');
-  }
-}
 
 function pushListItem() {
   let bookHtml = '';
   const booksArray = JSON.parse(localStorage.getItem('booksList'));
   if (booksArray !== null) {
-    arr = booksArray;
     booksArray.forEach((item) => {
-      bookHtml += `<li class="list_item"><p class="book-name">${item.book}</p><br>
-                          <p class="book-author">${item.author}</p>
-                      <button type="button" id=${item.id} onclick="removeData(this.id)">Remove</button>
-                      <hr class="line"></li>`;
+      bookHtml += `<li class="list_item">
+    <p class="book-name">"${item.book}" by ${item.author}</p><br><button type="button" id=${item.id} onclick="collection.removeBooks(this.id)">Remove</button></li>`;
     });
     output.innerHTML = bookHtml;
   }
 }
-pushListItem();
 
-function removeData(id) {
-  arr = arr.filter((e) => e.id !== id);
-  locStorage();
-  pushListItem();
+class Collection {
+  constructor() {
+    this.arr = [];
+  }
+
+  // class to check array items in the local storage
+
+  getBooks() {
+    if (localStorage.getItem('booksList') === null) {
+      this.arr = [];
+    } else {
+      this.arr = JSON.parse(localStorage.getItem('booksList'));
+    }
+  }
+
+  // class to update array in the local storage
+
+  UpdateLocalStorage() {
+    localStorage.setItem('booksList', JSON.stringify(this.arr));
+  }
+
+  // class to push items into array and display them
+
+  addBooks() {
+    const bookObj = {
+      id: new Date().getTime().toString(),
+      book: bookName.value,
+      author: author.value,
+    };
+    this.arr.push(bookObj);
+    this.UpdateLocalStorage();
+    pushListItem();
+  }
+
+  // class to remove items from array and display them
+
+  removeBooks(id) {
+    this.arr = this.arr.filter((e) => e.id !== id);
+    this.UpdateLocalStorage();
+    pushListItem();
+  }
 }
 
-addBtn.addEventListener('click', () => {
-  pushBook();
-  pushListItem();
-});
+const collection = new Collection();
 
-removeData();
+// window onload function to get array items from the local storage and display them
+
+window.onload = () => {
+  collection.getBooks();
+  pushListItem();
+};
+
+const addBtn = document.querySelector('.addBtn');
+
+// event listener to trigger add class
+
+addBtn.addEventListener('click', () => {
+  collection.getBooks();
+  collection.addBooks();
+});
