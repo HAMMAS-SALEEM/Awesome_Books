@@ -38,10 +38,6 @@ ul {
   padding: 10px;
 }
 
-.nav_btns {
-  display: flex;
-}
-
 .nav-items {
   list-style: none;
   margin-right: 20px;
@@ -114,7 +110,8 @@ input::placeholder {
   display: block;
 }
 
-#list, #contact {
+#list,
+#contact {
   display: none;
 }
 
