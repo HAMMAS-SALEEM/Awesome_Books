@@ -3,7 +3,7 @@
 const bookName = document.getElementById('name');
 const author = document.getElementById('author');
 const output = document.querySelector('.list-elements');
-const form = document.querySelector('#form')
+const form = document.querySelector('#form');
 
 function pushListItem() {
   let bookHtml = '';

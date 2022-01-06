@@ -118,7 +118,8 @@ input::placeholder {
   display: block;
 }
 
-#list, #contact {
+#list,
+#contact {
   display: none;
 }
 
