@@ -66,7 +66,7 @@ const collection = new Collection();
 
 window.onload = () => {
   collection.getBooks();
-  pushListItem();
+  // pushListItem();
 };
 
 const addBtn = document.querySelector('.addBtn');
