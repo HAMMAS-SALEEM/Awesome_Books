@@ -3,36 +3,29 @@
 const bookName = document.getElementById('name');
 const author = document.getElementById('author');
 const output = document.querySelector('.list-elements');
-const defaultObj = {
-  id: '1',
-  book: 'Avengers',
-  author: 'Hammas'
-} 
 
 class Collection {
   constructor() {
-    this.arr = [];
-  }
+    this.arr = []
+  };
 
   //class to check array items in the local storage
 
   getBooks() {
     if (localStorage.getItem('booksList') === null) {
-      this.arr.push(defaultObj);
-      console.log('null');
-      console.log(this.arr.push(defaultObj));
-    }
+      this.arr = [];
+    };
      else {
       this.arr = JSON.parse(localStorage.getItem('booksList'));
       console.log('Not empty');
-    }
-  }
+    };
+  };
 
   //class to update array in the local storage
 
   UpdateLocalStorage() {
     localStorage.setItem('booksList', JSON.stringify(this.arr));
-  }
+  };
 
   //class to push items into array and display them
 
@@ -45,7 +38,7 @@ class Collection {
     this.arr.push(bookObj);
     this.UpdateLocalStorage();
     pushListItem();
-  }
+  };
 
   //class to remove items from array and display them
 
@@ -53,30 +46,30 @@ class Collection {
     this.arr = this.arr.filter((e) => e.id !== id);
     this.UpdateLocalStorage();
     pushListItem()
-  }
-}
+  };
+};
 
 const collection = new Collection();
 
 function pushListItem() {
-    let bookHtml = '';
-    let booksArray = JSON.parse(localStorage.getItem('booksList'));
-    if(booksArray!==null){
-        arr = booksArray;
-        booksArray.forEach((item)=>{
-        bookHtml += `<li class="list_item">
-        <p class="book-name">"${item.book}" by ${item.author}</p><br><button type="button" id=${item.id} onclick="collection.removeBooks(this.id)">Remove</button></li>`
-        });
-        output.innerHTML = bookHtml
-    }
-}
+  let bookHtml = '';
+  let booksArray = JSON.parse(localStorage.getItem('booksList'));
+  if(booksArray!==null){
+    arr = booksArray;
+    booksArray.forEach((item)=>{
+    bookHtml += `<li class="list_item">
+    <p class="book-name">"${item.book}" by ${item.author}</p><br><button type="button" id=${item.id} onclick="collection.removeBooks(this.id)">Remove</button></li>`
+    });
+    output.innerHTML = bookHtml;
+    };
+};
 
 //window onload function to get array items from the local storage and display them
 
 window.onload = () => {
   collection.getBooks();
   pushListItem();
-}
+};
 
 const addBtn = document.querySelector('.addBtn');
 
@@ -85,4 +78,4 @@ const addBtn = document.querySelector('.addBtn');
 addBtn.addEventListener('click', ()=>{
   collection.getBooks();
   collection.addBooks();
-})
+});
