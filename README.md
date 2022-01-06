@@ -4,7 +4,9 @@
 
 > This is an application for books record.
 
-![screenshot](./images/awesome_books.GIF)
+![screenshot](./images/add_page.GIF)
+![screenshot](./images/books_list.GIF)
+![screenshot](./images/contact_page.GIF)
 
 ## Built With
 
