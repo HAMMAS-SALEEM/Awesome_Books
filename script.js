@@ -61,8 +61,6 @@ class Collection {
 
 const collection = new Collection();
 
-
-
 // window onload function to get array items from the local storage and display them
 
 window.onload = () => {
