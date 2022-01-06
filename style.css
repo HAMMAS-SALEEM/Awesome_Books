@@ -30,10 +30,16 @@ nav {
   justify-content: space-between;
 }
 
+.nav_btns {
+  display: flex;
+}
+
 ul {
   padding: 10px;
+}
+
+.nav_btns {
   display: flex;
-  justify-content: center;
 }
 
 .nav-items {
@@ -53,6 +59,7 @@ ul {
 
 .time {
   text-align: right;
+  margin-top: 6px;
 }
 
 button {
@@ -69,6 +76,10 @@ button {
   text-align: center;
   margin-top: 80px;
   font-size: 37px;
+}
+
+.book-name {
+  align-self: center;
 }
 
 .book-author {
