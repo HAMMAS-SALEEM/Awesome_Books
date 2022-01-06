@@ -9,6 +9,7 @@ function pushListItem() {
   let bookHtml = '';
   const booksArray = JSON.parse(localStorage.getItem('booksList'));
   if (booksArray !== null) {
+    collection.setupArray()
     booksArray.forEach((item) => {
       bookHtml += `<li class="list_item">
     <p class="book-name">"${item.book}" by ${item.author}</p><br><button type="button" id=${item.id} onclick="collection.removeBooks(this.id)">Remove</button></li>`;
@@ -51,12 +52,17 @@ class Collection {
     pushListItem();
   }
 
+  setupArray() {
+    this.arr=JSON.parse(localStorage.getItem('booksList'))
+  }
+
   // class to remove items from array and display them
 
   removeBooks(id) {
     this.arr = this.arr.filter((e) => e.id !== id);
     this.UpdateLocalStorage();
     pushListItem();
+    console.log(id)
   }
 }
 
