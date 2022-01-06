@@ -97,6 +97,7 @@ navList.addEventListener('click',() => {
   listSection.style.display = 'block';
   addSection.style.display = 'none';
   contactSection.style.display = 'none';
+  pushListItem();
 })
 
 navAdd.addEventListener('click', ()=>{
