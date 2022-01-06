@@ -77,7 +77,7 @@ addBtn.addEventListener('click', () => {
   collection.addBooks();
 });
 
-//NAVIGATION variables
+// NAVIGATION variables
 
 const navList = document.getElementById('nav-list');
 const navAdd = document.getElementById('nav-add');
@@ -87,27 +87,27 @@ const addSection = document.getElementById('add-book');
 const contactSection = document.getElementById('contact');
 const time = document.getElementById('time');
 
-window.onload = function() {
+window.onload = function () {
   setInterval(() => {
     time.innerHTML = new Date();
   }, 100);
-}
+};
 
-navList.addEventListener('click',() => {
+navList.addEventListener('click', () => {
   listSection.style.display = 'block';
   addSection.style.display = 'none';
   contactSection.style.display = 'none';
   pushListItem();
-})
+});
 
-navAdd.addEventListener('click', ()=>{
+navAdd.addEventListener('click', () => {
   listSection.style.display = 'none';
   addSection.style.display = 'block';
   contactSection.style.display = 'none';
-})
+});
 
-navContact.addEventListener('click', ()=>{
+navContact.addEventListener('click', () => {
   listSection.style.display = 'none';
   addSection.style.display = 'none';
   contactSection.style.display = 'block';
-})
+});
