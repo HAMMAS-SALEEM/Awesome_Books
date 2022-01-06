@@ -31,10 +31,9 @@ nav {
 }
 
 ul {
-  /* width: 80%; */
   padding: 10px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .nav-items {
@@ -52,17 +51,24 @@ ul {
   justify-content: space-between;
 }
 
+.time {
+  text-align: right;
+}
+
 button {
   background-color: thistle;
   border: 2px solid grey;
   outline: none;
   padding: 5px;
   box-shadow: 3px 3px 5px 1px rgb(0, 0, 0, 0.4);
+  cursor: pointer;
 }
 
 .header {
-  margin: 20px;
   font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  margin-top: 80px;
+  font-size: 37px;
 }
 
 .book-author {
@@ -72,13 +78,15 @@ button {
 form {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  margin: auto;
 }
 
 input {
   margin: 10px;
   border: 2px solid black;
   padding: 5px;
+  width: 250px;
 }
 
 input::placeholder {
@@ -91,11 +99,26 @@ input::placeholder {
   margin: 10px;
 }
 
-#list {
+#add-book {
   display: block;
 }
 
-#add-book,
-#contact {
+#list, #contact {
   display: none;
+}
+
+.footer-container {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  display: flex;
+  border: 3px solid black;
+}
+
+small {
+  margin: auto;
+  font-weight: 800;
+  font-size: 16px;
 }
