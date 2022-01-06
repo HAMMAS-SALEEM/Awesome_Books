@@ -3,6 +3,7 @@
 const bookName = document.getElementById('name');
 const author = document.getElementById('author');
 const output = document.querySelector('.list-elements');
+const form = document.querySelector('#form');
 
 function pushListItem() {
   let bookHtml = '';
@@ -18,7 +19,7 @@ function pushListItem() {
 
 class Collection {
   constructor() {
-    this.arr = [];
+    this.arr = JSON.parse(localStorage.getItem('booksList'));
   }
 
   // class to check array items in the local storage
@@ -50,6 +51,10 @@ class Collection {
     pushListItem();
   }
 
+  setupArray() {
+    this.arr = JSON.parse(localStorage.getItem('booksList'));
+  }
+
   // class to remove items from array and display them
 
   removeBooks(id) {
@@ -65,7 +70,7 @@ const collection = new Collection();
 
 window.onload = () => {
   collection.getBooks();
-  pushListItem();
+  // pushListItem();
 };
 
 const addBtn = document.querySelector('.addBtn');
@@ -75,4 +80,42 @@ const addBtn = document.querySelector('.addBtn');
 addBtn.addEventListener('click', () => {
   collection.getBooks();
   collection.addBooks();
+  form.reset();
+});
+
+// NAVIGATION variables
+
+const navList = document.getElementById('nav-list');
+const navAdd = document.getElementById('nav-add');
+const navContact = document.getElementById('nav-contact');
+const listSection = document.getElementById('list');
+const addSection = document.getElementById('add-book');
+const contactSection = document.getElementById('contact');
+const time = document.getElementById('time');
+
+function timeDate() {
+  setInterval(() => {
+    time.innerHTML = new Date();
+  }, 100);
+}
+
+window.addEventListener('load', timeDate);
+
+navList.addEventListener('click', () => {
+  listSection.style.display = 'block';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'none';
+  pushListItem();
+});
+
+navAdd.addEventListener('click', () => {
+  listSection.style.display = 'none';
+  addSection.style.display = 'block';
+  contactSection.style.display = 'none';
+});
+
+navContact.addEventListener('click', () => {
+  listSection.style.display = 'none';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'flex';
 });

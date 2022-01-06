@@ -7,7 +7,6 @@
 body {
   width: 100vw;
   height: 100vh;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -15,15 +14,43 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-ul {
-  width: 80%;
-  height: auto;
-  padding: 10px;
-  border: 2px solid black;
-  margin-bottom: 60px;
+main {
+  margin-top: 30px;
 }
 
-li {
+header {
+  border: 2px solid black;
+  height: auto;
+}
+
+.logo {
+  width: 140px;
+  align-self: center;
+  margin-left: 15px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_btns {
+  display: flex;
+}
+
+ul {
+  padding: 10px;
+}
+
+.nav-items {
+  list-style: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.list_item {
   list-style: none;
   margin: 10px;
   padding: 10px;
@@ -32,17 +59,31 @@ li {
   justify-content: space-between;
 }
 
+.time {
+  text-align: right;
+  margin-top: -20px;
+  margin-right: 3px;
+}
+
 button {
   background-color: thistle;
   border: 2px solid grey;
   outline: none;
   padding: 5px;
   box-shadow: 3px 3px 5px 1px rgb(0, 0, 0, 0.4);
+  cursor: pointer;
 }
 
 .header {
-  margin: 20px;
   font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  margin-top: 80px;
+  font-size: 37px;
+}
+
+.book-name {
+  align-self: center;
+  font-weight: 700;
 }
 
 .book-author {
@@ -52,13 +93,15 @@ button {
 form {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  margin: auto;
 }
 
 input {
   margin: 10px;
   border: 2px solid black;
   padding: 5px;
+  width: 250px;
 }
 
 input::placeholder {
@@ -69,4 +112,54 @@ input::placeholder {
 .addBtn {
   width: 60px;
   margin: 10px;
+}
+
+#add-book {
+  display: block;
+}
+
+#list,
+#contact {
+  display: none;
+}
+
+footer {
+  padding: 10px 0;
+}
+
+.footer-container {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  margin: auto auto;
+  border: 3px solid black;
+}
+
+small {
+  margin: auto;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+#contact {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+#contact p {
+  margin: 10px;
+}
+
+ol {
+  text-align: center;
+  list-style: none;
+  margin: 20px;
+}
+
+.contact_list_item {
+  margin-top: 5px;
 }
