@@ -112,8 +112,8 @@ input::placeholder {
   height: 40px;
   position: absolute;
   bottom: 10px;
-  text-align: center;
   display: flex;
+  margin: auto auto;
   border: 3px solid black;
 }
 
