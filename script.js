@@ -109,5 +109,5 @@ navAdd.addEventListener('click', () => {
 navContact.addEventListener('click', () => {
   listSection.style.display = 'none';
   addSection.style.display = 'none';
-  contactSection.style.display = 'block';
+  contactSection.style.display = 'flex';
 });
